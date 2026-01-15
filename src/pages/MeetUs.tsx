@@ -13,24 +13,28 @@ const teamMembers = [
     role: "Founder & Managing Partner",
     bio: "25+ years of experience leading transformation initiatives across Fortune 500 companies. Former VP of Operations at a global manufacturing leader.",
     image: teamMember1,
+    linkedin: "https://www.linkedin.com/in/sla%C4%91ana-milosavljevi%C4%87-68434a1a5/",
   },
   {
     name: "Sarah Mitchell",
     role: "Partner, Strategy Hub",
     bio: "Expert in strategy deployment and execution with deep experience in healthcare, financial services, and technology sectors.",
     image: teamMember2,
+    linkedin: "",
   },
   {
     name: "Michael Chen",
     role: "Principal Consultant",
     bio: "Lean Six Sigma Master Black Belt with extensive experience in process excellence and operational transformation.",
     image: teamMember3,
+    linkedin: "",
   },
   {
     name: "Elena Rodriguez",
     role: "Director, Excellence Academy",
     bio: "Learning and development expert specializing in building organizational capability and training program design.",
     image: teamMember4,
+    linkedin: "",
   },
 ];
 
@@ -124,13 +128,17 @@ export default function MeetUs() {
                     {member.bio}
                   </p>
                   <div className="flex gap-3">
-                    <a
-                      href="#"
-                      className="text-muted-foreground hover:text-accent transition-colors"
-                      aria-label={`${member.name}'s LinkedIn`}
-                    >
-                      <Linkedin className="h-5 w-5" />
-                    </a>
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-accent transition-colors"
+                        aria-label={`${member.name}'s LinkedIn`}
+                      >
+                        <Linkedin className="h-5 w-5" />
+                      </a>
+                    )}
                     <a
                       href="#"
                       className="text-muted-foreground hover:text-accent transition-colors"
