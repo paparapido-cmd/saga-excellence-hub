@@ -20,7 +20,7 @@ const teamMembers = [
     role: "Partner, Strategy Hub",
     bio: "Expert in strategy deployment and execution with deep experience in healthcare, financial services, and technology sectors.",
     image: teamMember2,
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/tihomir-djurkovic-21510a238/",
   },
   {
     name: "Michael Chen",
