@@ -133,7 +133,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Information */}
-          <div>
+          <div className="">
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-6">
               Get in Touch
             </h2>
