@@ -9,7 +9,7 @@ import teamMember4 from "@/assets/team-member-4.jpg";
 
 const teamMembers = [
   {
-    name: "James Richardson",
+    name: "dsa",
     role: "Founder & Managing Partner",
     bio: "25+ years of experience leading transformation initiatives across Fortune 500 companies. Former VP of Operations at a global manufacturing leader.",
     image: teamMember1,
