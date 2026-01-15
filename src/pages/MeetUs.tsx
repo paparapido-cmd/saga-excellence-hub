@@ -16,7 +16,7 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/sla%C4%91ana-milosavljevi%C4%87-68434a1a5/",
   },
   {
-    name: "Sarah Mitchell",
+    name: "Tihomir Djurkovic",
     role: "Partner, Strategy Hub",
     bio: "Expert in strategy deployment and execution with deep experience in healthcare, financial services, and technology sectors.",
     image: teamMember2,
