@@ -10,53 +10,61 @@ import { ContentSection } from "@/components/shared/ContentSection";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
-
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
   email: z.string().trim().email("Please enter a valid email address").max(255, "Email must be less than 255 characters"),
-  message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
+  message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters")
 });
-
 export default function Contact() {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: "",
+    message: ""
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const {
+      name,
+      value
+    } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
     // Clear error when user starts typing
     if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }));
+      setErrors(prev => ({
+        ...prev,
+        [name]: ""
+      }));
     }
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setErrors({});
-
     try {
       const validatedData = contactSchema.parse(formData);
-      
+
       // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      
+      await new Promise(resolve => setTimeout(resolve, 1000));
       toast({
         title: "Message sent successfully!",
-        description: "We'll get back to you within 24-48 hours.",
+        description: "We'll get back to you within 24-48 hours."
       });
-      
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({
+        name: "",
+        email: "",
+        message: ""
+      });
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldErrors: Record<string, string> = {};
-        error.errors.forEach((err) => {
+        error.errors.forEach(err => {
           if (err.path[0]) {
             fieldErrors[err.path[0] as string] = err.message;
           }
@@ -66,20 +74,15 @@ export default function Contact() {
         toast({
           title: "Something went wrong",
           description: "Please try again later.",
-          variant: "destructive",
+          variant: "destructive"
         });
       }
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  return (
-    <PageLayout>
-      <PageHero
-        title="Contact Us"
-        subtitle="Ready to start your excellence journey? We're here to help."
-      />
+  return <PageLayout>
+      <PageHero title="Contact Us" subtitle="Ready to start your excellence journey? We're here to help." />
 
       <ContentSection>
         <div className="grid lg:grid-cols-2 gap-16">
@@ -96,66 +99,27 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Label htmlFor="name">Name</Label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your full name"
-                  className={errors.name ? "border-destructive" : ""}
-                />
-                {errors.name && (
-                  <p className="text-destructive text-sm mt-1">{errors.name}</p>
-                )}
+                <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Your full name" className={errors.name ? "border-destructive" : ""} />
+                {errors.name && <p className="text-destructive text-sm mt-1">{errors.name}</p>}
               </div>
 
               <div>
                 <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="your.email@company.com"
-                  className={errors.email ? "border-destructive" : ""}
-                />
-                {errors.email && (
-                  <p className="text-destructive text-sm mt-1">{errors.email}</p>
-                )}
+                <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="your.email@company.com" className={errors.email ? "border-destructive" : ""} />
+                {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
               </div>
 
               <div>
                 <Label htmlFor="message">Message</Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your organization and how we can help..."
-                  rows={6}
-                  className={errors.message ? "border-destructive" : ""}
-                />
-                {errors.message && (
-                  <p className="text-destructive text-sm mt-1">{errors.message}</p>
-                )}
+                <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your organization and how we can help..." rows={6} className={errors.message ? "border-destructive" : ""} />
+                {errors.message && <p className="text-destructive text-sm mt-1">{errors.message}</p>}
               </div>
 
-              <Button
-                type="submit"
-                variant="gold"
-                size="lg"
-                disabled={isSubmitting}
-                className="w-full sm:w-auto"
-              >
-                {isSubmitting ? (
-                  "Sending..."
-                ) : (
-                  <>
+              <Button type="submit" variant="gold" size="lg" disabled={isSubmitting} className="w-full sm:w-auto">
+                {isSubmitting ? "Sending..." : <>
                     Send Message
                     <Send className="ml-2 h-4 w-4" />
-                  </>
-                )}
+                  </>}
               </Button>
             </form>
 
@@ -184,12 +148,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                  <a
-                    href="mailto:contact@sagaexcellence.com"
-                    className="text-muted-foreground hover:text-accent transition-colors"
-                  >
-                    contact@sagaexcellence.com
-                  </a>
+                  <a href="mailto:contact@sagaexcellence.com" className="text-muted-foreground hover:text-accent transition-colors">office@sagaexcellence.com</a>
                 </div>
               </div>
 
@@ -199,12 +158,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                  <a
-                    href="tel:+15551234567"
-                    className="text-muted-foreground hover:text-accent transition-colors"
-                  >
-                    +1 (555) 123-4567
-                  </a>
+                  <a href="tel:+15551234567" className="text-muted-foreground hover:text-accent transition-colors">+381638026766</a>
                 </div>
               </div>
 
@@ -214,8 +168,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Office</h3>
-                  <address className="text-muted-foreground not-italic">
-                    123 Business Avenue<br />
+                  <address className="text-muted-foreground not-italic">U Sluncove
+Prague<br />
                     Suite 400<br />
                     New York, NY 10001
                   </address>
@@ -238,6 +192,5 @@ export default function Contact() {
           </div>
         </div>
       </ContentSection>
-    </PageLayout>
-  );
+    </PageLayout>;
 }
