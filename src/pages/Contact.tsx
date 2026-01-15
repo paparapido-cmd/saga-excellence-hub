@@ -169,7 +169,7 @@ export default function Contact() {
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Office</h3>
                   <address className="text-muted-foreground not-italic">U Sluncove 
-Prague, Karlin
+Prague, Karlin 
 Czech Republic
 
                   <br />
