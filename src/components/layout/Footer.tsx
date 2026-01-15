@@ -85,6 +85,7 @@ export function Footer() {
 Prague, Karlin
 Czech Republic
 
+
                 <br />
                   New York, NY 10001
                 </span>
