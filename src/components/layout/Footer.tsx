@@ -92,9 +92,7 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/80 text-sm">
-                  U Sluncove<br />
-                  Prague, Karlín<br />
-                  Czech Republic
+                  Prague, Czech Republic
                 </span>
               </li>
             </ul>
