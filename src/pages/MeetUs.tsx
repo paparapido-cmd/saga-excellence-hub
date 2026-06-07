@@ -88,22 +88,8 @@ export default function MeetUs() {
                   methodology, operational excellence, and organizational transformation.
                 </p>
                 <div className="flex gap-4">
-                  
-                    href="https://www.linkedin.com/in/sla%C4%91ana-milosavljevi%C4%87-68434a1a5/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-accent transition-colors"
-                    aria-label="Sladjana's LinkedIn"
-                  >
-                    <Linkedin className="h-5 w-5" />
-                  </a>
-                  
-                    href="mailto:office@sagaexcellence.com"
-                    className="text-muted-foreground hover:text-accent transition-colors"
-                    aria-label="Email Sladjana"
-                  >
-                    <Mail className="h-5 w-5" />
-                  </a>
+                  <a href="https://www.linkedin.com/in/sla%C4%91ana-milosavljevi%C4%87-68434a1a5/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors" aria-label="Sladjana LinkedIn"><Linkedin className="h-5 w-5" /></a>
+                  <a href="mailto:office@sagaexcellence.com" className="text-muted-foreground hover:text-accent transition-colors" aria-label="Email Sladjana"><Mail className="h-5 w-5" /></a>
                 </div>
               </div>
             </div>
