@@ -1,33 +1,23 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
-const practiceAreas = [{
-  title: "Saga Excellence Academy",
-  href: "/practice-areas/academy"
-}, {
-  title: "Pathways to Excellence",
-  href: "/practice-areas/pathways"
-}, {
-  title: "Strategy Hub",
-  href: "/practice-areas/strategy-hub"
-}];
-const quickLinks = [{
-  title: "Home",
-  href: "/"
-}, {
-  title: "Meet Us",
-  href: "/meet-us"
-}, {
-  title: "Successful Cases",
-  href: "/successful-cases"
-}, {
-  title: "Blog",
-  href: "/blog"
-}, {
-  title: "Contact Us",
-  href: "/contact"
-}];
+
+const practiceAreas = [
+  { title: "Saga Excellence Academy", href: "/practice-areas/academy" },
+  { title: "Pathways to Excellence", href: "/practice-areas/pathways" },
+  { title: "Strategy Hub", href: "/practice-areas/strategy-hub" },
+];
+
+const quickLinks = [
+  { title: "Home", href: "/" },
+  { title: "Meet Us", href: "/meet-us" },
+  { title: "Successful Cases", href: "/successful-cases" },
+  { title: "Blog", href: "/blog" },
+  { title: "Contact Us", href: "/contact" },
+];
+
 export function Footer() {
-  return <footer className="bg-primary text-primary-foreground">
+  return (
+    <footer className="bg-primary text-primary-foreground">
       <div className="container-wide section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
@@ -38,7 +28,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-primary-foreground/80 text-sm leading-relaxed">
-              Where Excellence Meets Execution. We partner with organizations to transform 
+              Where Excellence Meets Execution. We partner with organizations to transform
               their performance through strategic consulting and executive education.
             </p>
           </div>
@@ -47,11 +37,16 @@ export function Footer() {
           <div>
             <h4 className="font-serif text-lg font-semibold mb-6">Practice Areas</h4>
             <ul className="space-y-3">
-              {practiceAreas.map(link => <li key={link.href}>
-                  <Link to={link.href} className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
+              {practiceAreas.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="text-primary-foreground/80 hover:text-accent transition-colors text-sm"
+                  >
                     {link.title}
                   </Link>
-                </li>)}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -59,11 +54,16 @@ export function Footer() {
           <div>
             <h4 className="font-serif text-lg font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              {quickLinks.map(link => <li key={link.href}>
-                  <Link to={link.href} className="text-primary-foreground/80 hover:text-accent transition-colors text-sm">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="text-primary-foreground/80 hover:text-accent transition-colors text-sm"
+                  >
                     {link.title}
                   </Link>
-                </li>)}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -73,21 +73,28 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Mail className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                <span className="text-primary-foreground/80 text-sm">office@sagaexcellence.com</span>
+                
+                  href="mailto:office@sagaexcellence.com"
+                  className="text-primary-foreground/80 hover:text-accent transition-colors text-sm"
+                >
+                  office@sagaexcellence.com
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                <span className="text-primary-foreground/80 text-sm">+381638026766</span>
+                
+                  href="tel:+381638026766"
+                  className="text-primary-foreground/80 hover:text-accent transition-colors text-sm"
+                >
+                  +381 63 802 6766
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                <span className="text-primary-foreground/80 text-sm">U Sluncove
-Prague, Karlin
-Czech Republic
-
-
-                <br />
-                  New York, NY 10001
+                <span className="text-primary-foreground/80 text-sm">
+                  U Sluncove<br />
+                  Prague, Karlín<br />
+                  Czech Republic
                 </span>
               </li>
             </ul>
@@ -100,15 +107,22 @@ Czech Republic
               © {new Date().getFullYear()} Saga Excellence. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <Link to="/privacy" className="text-primary-foreground/60 hover:text-accent transition-colors text-sm">
+              <Link
+                to="/privacy"
+                className="text-primary-foreground/60 hover:text-accent transition-colors text-sm"
+              >
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="text-primary-foreground/60 hover:text-accent transition-colors text-sm">
+              <Link
+                to="/terms"
+                className="text-primary-foreground/60 hover:text-accent transition-colors text-sm"
+              >
                 Terms of Service
               </Link>
             </div>
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 }
