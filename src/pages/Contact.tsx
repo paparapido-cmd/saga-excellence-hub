@@ -38,7 +38,7 @@ export default function Contact() {
     try {
       const validatedData = contactSchema.parse(formData);
 
-      const response = await fetch("https://formspree.io/f/xpwrknqb", {
+      const response = await fetch("https://formspree.io/f/maqzeggw", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
