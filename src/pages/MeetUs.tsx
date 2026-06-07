@@ -72,44 +72,4 @@ export default function MeetUs() {
           </h2>
           <div className="flex justify-center">
             <div className="bg-card rounded-lg overflow-hidden shadow-soft hover:shadow-strong transition-all duration-300 max-w-sm w-full">
-              <div className="aspect-square overflow-hidden bg-secondary flex items-center justify-center">
-                <span className="text-6xl font-serif font-bold text-accent/30">SM</span>
-              </div>
-              <div className="p-8">
-                <h3 className="font-serif text-2xl font-semibold text-foreground mb-1">
-                  Sladjana Milosavljevic
-                </h3>
-                <p className="text-accent font-medium text-sm mb-4">
-                  Founder & Managing Partner
-                </p>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                  25+ years of experience leading transformation initiatives across Fortune 500 companies.
-                  Former VP of Operations at a global manufacturing leader. Deep expertise in Lean
-                  methodology, operational excellence, and organizational transformation.
-                </p>
-                <div className="flex gap-4">
-                  
-                    href="https://www.linkedin.com/in/sla%C4%91ana-milosavljevi%C4%87-68434a1a5/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-accent transition-colors"
-                    aria-label="Sladjana's LinkedIn"
-                  >
-                    <Linkedin className="h-5 w-5" />
-                  </a>
-                  
-                    href="mailto:office@sagaexcellence.com"
-                    className="text-muted-foreground hover:text-accent transition-colors"
-                    aria-label="Email Sladjana"
-                  >
-                    <Mail className="h-5 w-5" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ContentSection>
-    </PageLayout>
-  );
-}
+              <div className="aspect-square
