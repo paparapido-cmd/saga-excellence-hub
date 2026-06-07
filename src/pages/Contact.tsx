@@ -201,9 +201,7 @@ export default function Contact() {
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Office</h3>
                   <address className="text-muted-foreground not-italic">
-                    U Sluncove<br />
-                    Prague, Karlín<br />
-                    Czech Republic
+                    Prague, Czech Republic
                   </address>
                 </div>
               </div>
