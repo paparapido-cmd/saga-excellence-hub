@@ -74,7 +74,7 @@ export default function MeetUs() {
             <div className="bg-card rounded-lg overflow-hidden shadow-soft hover:shadow-strong transition-all duration-300 max-w-sm w-full">
               <div className="aspect-square overflow-hidden">
   <img
-    src="/src/assets/sladjana.jpg"
+    src="/sladjana.jpg"
     alt="Sladjana Milosavljevic"
     className="w-full h-full object-cover"
   />
