@@ -72,9 +72,13 @@ export default function MeetUs() {
           </h2>
           <div className="flex justify-center">
             <div className="bg-card rounded-lg overflow-hidden shadow-soft hover:shadow-strong transition-all duration-300 max-w-sm w-full">
-              <div className="aspect-square overflow-hidden bg-secondary flex items-center justify-center">
-                <span className="text-6xl font-serif font-bold text-accent/30">SM</span>
-              </div>
+              <div className="aspect-square overflow-hidden">
+  <img
+    src="/src/assets/sladjana.jpg"
+    alt="Sladjana Milosavljevic"
+    className="w-full h-full object-cover"
+  />
+</div>
               <div className="p-8">
                 <h3 className="font-serif text-2xl font-semibold text-foreground mb-1">
                   Sladjana Milosavljevic
