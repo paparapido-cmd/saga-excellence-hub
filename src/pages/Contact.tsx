@@ -170,7 +170,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                  
+                  <a
                    href="mailto:office@sagaexcellence.com"
                     className="text-muted-foreground hover:text-accent transition-colors"
                   >
@@ -185,7 +185,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                  
+                  <a
                     href="tel:+381638026766"
                     className="text-muted-foreground hover:text-accent transition-colors"
                   >
