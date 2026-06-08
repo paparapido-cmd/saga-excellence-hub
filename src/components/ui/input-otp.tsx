@@ -2,49 +2,43 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Dot } from "lucide-react";
 
-const InputOTP = React.forwardRef
-  HTMLInputElement,
-  React.InputHTMLAttributes<HTMLInputElement>
->(({ className, ...props }, ref) => (
-  <input
-    ref={ref}
-    className={cn("flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm", className)}
-    {...props}
-  />
-));
-InputOTP.displayName = "InputOTP";
+function InputOTP(props: React.InputHTMLAttributes<HTMLInputElement>) {
+  const { className, ...rest } = props;
+  return (
+    <input
+      className={cn(
+        "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm",
+        className
+      )}
+      {...rest}
+    />
+  );
+}
 
-const InputOTPGroup = React.forwardRef
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("flex items-center", className)} {...props} />
-));
-InputOTPGroup.displayName = "InputOTPGroup";
+function InputOTPGroup(props: React.HTMLAttributes<HTMLDivElement>) {
+  const { className, ...rest } = props;
+  return <div className={cn("flex items-center", className)} {...rest} />;
+}
 
-const InputOTPSlot = React.forwardRef
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { index?: number }
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      "relative flex h-10 w-10 items-center justify-center border-y border-r border-input text-sm first:rounded-l-md first:border-l last:rounded-r-md",
-      className
-    )}
-    {...props}
-  />
-));
-InputOTPSlot.displayName = "InputOTPSlot";
+function InputOTPSlot(props: React.HTMLAttributes<HTMLDivElement>) {
+  const { className, ...rest } = props;
+  return (
+    <div
+      className={cn(
+        "relative flex h-10 w-10 items-center justify-center border-y border-r border-input text-sm first:rounded-l-md first:border-l last:rounded-r-md",
+        className
+      )}
+      {...rest}
+    />
+  );
+}
 
-const InputOTPSeparator = React.forwardRef
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ ...props }, ref) => (
-  <div ref={ref} role="separator" {...props}>
-    <Dot />
-  </div>
-));
-InputOTPSeparator.displayName = "InputOTPSeparator";
+function InputOTPSeparator(props: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div role="separator" {...props}>
+      <Dot />
+    </div>
+  );
+}
 
 export { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator };
