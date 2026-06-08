@@ -2,78 +2,37 @@ import { Link } from "react-router-dom";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PageHero } from "@/components/shared/PageHero";
 import { ContentSection } from "@/components/shared/ContentSection";
-import { ArrowRight, Calendar, User, Clock } from "lucide-react";
+import { Calendar, User, Clock } from "lucide-react";
+import { useEffect, useState } from "react";
 
-const blogPosts = [
-  {
-    id: 1,
-    slug: "building-culture-continuous-improvement",
-    title: "Building a Culture of Continuous Improvement",
-    excerpt:
-      "Discover the key elements that distinguish organizations with thriving improvement cultures from those that struggle to sustain momentum.",
-    author: "Saga Excellence Team",
-    date: "June 2, 2026",
-    readTime: "8 min read",
-    category: "Leadership",
-  },
-  {
-    id: 2,
-    slug: "lean-beyond-manufacturing",
-    title: "Lean Beyond Manufacturing: Applications in Service Industries",
-    excerpt:
-      "How service organizations are adapting Lean principles to eliminate waste, improve flow, and enhance customer experience.",
-    author: "Saga Excellence Team",
-    date: "May 19, 2026",
-    readTime: "6 min read",
-    category: "Lean",
-  },
-  {
-    id: 3,
-    slug: "strategy-execution-gap",
-    title: "Closing the Strategy-Execution Gap",
-    excerpt:
-      "Why most strategic initiatives fail to deliver results, and what organizations can do to improve their execution track record.",
-    author: "Saga Excellence Team",
-    date: "May 5, 2026",
-    readTime: "10 min read",
-    category: "Strategy",
-  },
-  {
-    id: 4,
-    slug: "effective-training-programs",
-    title: "Designing Training Programs That Actually Work",
-    excerpt:
-      "Research-backed approaches to corporate learning that drive behavior change and deliver measurable business results.",
-    author: "Saga Excellence Team",
-    date: "April 21, 2026",
-    readTime: "7 min read",
-    category: "Training",
-  },
-  {
-    id: 5,
-    slug: "metrics-that-matter",
-    title: "Metrics That Matter: Measuring What Drives Performance",
-    excerpt:
-      "How to develop performance measurement systems that provide actionable insights and drive the right behaviors.",
-    author: "Saga Excellence Team",
-    date: "April 7, 2026",
-    readTime: "9 min read",
-    category: "Performance",
-  },
-  {
-    id: 6,
-    slug: "change-leadership-transformation",
-    title: "Leading Change in Complex Organizations",
-    excerpt:
-      "Practical strategies for leading transformation initiatives that address both the technical and human dimensions of change.",
-    author: "Saga Excellence Team",
-    date: "March 24, 2026",
-    readTime: "8 min read",
-    category: "Leadership",
-  },
-];
+interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  category: string;
+  readTime: string;
+}
 
 export default function Blog() {
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/notion?type=posts")
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError(true);
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <PageLayout>
       <PageHero
@@ -82,41 +41,61 @@ export default function Blog() {
       />
 
       <ContentSection>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
-            <Link
-              key={post.id}
-              to={`/blog/${post.slug}`}
-              className="group bg-card rounded-lg border border-border overflow-hidden shadow-soft hover:shadow-strong transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className="p-6">
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent mb-4">
-                  {post.category}
-                </span>
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-3 group-hover:text-accent transition-colors line-clamp-2">
-                  {post.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
-                  {post.excerpt}
-                </p>
-                <div className="flex items-center gap-4 text-xs text-muted-foreground pt-4 border-t border-border">
-                  <span className="flex items-center gap-1">
-                    <User className="h-3.5 w-3.5" />
-                    {post.author}
+        {loading && (
+          <div className="text-center py-20 text-muted-foreground">
+            Loading posts...
+          </div>
+        )}
+
+        {error && (
+          <div className="text-center py-20 text-muted-foreground">
+            Unable to load posts. Please try again later.
+          </div>
+        )}
+
+        {!loading && !error && posts.length === 0 && (
+          <div className="text-center py-20 text-muted-foreground">
+            No posts published yet.
+          </div>
+        )}
+
+        {!loading && !error && posts.length > 0 && (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map((post) => (
+              <Link
+                key={post.id}
+                to={`/blog/${post.slug}`}
+                className="group bg-card rounded-lg border border-border overflow-hidden shadow-soft hover:shadow-strong transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="p-6">
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent mb-4">
+                    {post.category}
                   </span>
-                  <span className="flex items-center gap-1">
-                    <Calendar className="h-3.5 w-3.5" />
-                    {post.date}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Clock className="h-3.5 w-3.5" />
-                    {post.readTime}
-                  </span>
+                  <h3 className="font-serif text-xl font-semibold text-foreground mb-3 group-hover:text-accent transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center gap-4 text-xs text-muted-foreground pt-4 border-t border-border">
+                    <span className="flex items-center gap-1">
+                      <User className="h-3.5 w-3.5" />
+                      Saga Excellence Team
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Calendar className="h-3.5 w-3.5" />
+                      {post.date}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Clock className="h-3.5 w-3.5" />
+                      {post.readTime}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </ContentSection>
     </PageLayout>
   );
