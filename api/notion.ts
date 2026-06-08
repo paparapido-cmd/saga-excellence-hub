@@ -23,14 +23,8 @@ export default async function handler(req, res) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            filter: {
-              property: "Published",
-              checkbox: { equals: true },
-            },
-            sorts: [{ property: "Date", direction: "descending" }],
-          }),
-        }
-      );
+  sorts: [{ property: "Date", direction: "descending" }],
+}),
 
       const data = await response.json();
 
