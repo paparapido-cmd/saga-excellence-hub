@@ -171,7 +171,7 @@ export default function Contact() {
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Email</h3>
                   
-                    href="mailto:office@sagaexcellence.com"
+                   href="mailto:office@sagaexcellence.com"
                     className="text-muted-foreground hover:text-accent transition-colors"
                   >
                     office@sagaexcellence.com
