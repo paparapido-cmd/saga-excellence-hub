@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PageHero } from "@/components/shared/PageHero";
 import { ContentSection } from "@/components/shared/ContentSection";
-import { SectionCard } from "@/components/shared/SectionCard";
 import { ArrowRight } from "lucide-react";
-import academyImage from "@/assets/training-academy.jpg";
-import pathwaysImage from "@/assets/pathways-excellence.jpg";
-import strategyImage from "@/assets/strategy-hub.jpg";
+
+const academyImage = "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80";
+const pathwaysImage = "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&q=80";
+const strategyImage = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80";
 
 const practiceAreas = [
   {
