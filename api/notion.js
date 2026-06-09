@@ -29,10 +29,15 @@ export default async function handler(req, res) {
       const data = await response.json();
 
       if (!data.results) {
-        return res.status(500).json({ error: "Notion error", details: data });
-      }
+  return res.status(500).json({ error: "Notion error", details: data });
+}
 
-      const posts = data.results.map((page) => ({
+// DEBUG - remove after fix
+if (data.results[0]) {
+  return res.status(200).json({ debug: data.results[0].properties });
+}
+
+const posts = data.results.map((page) => ({
         id: page.id,
         slug: page.properties.Slug?.rich_text?.[0]?.plain_text || page.properties.Slug?.title?.[0]?.plain_text || "",
         title: page.properties.Title?.title?.[0]?.plain_text || "",
