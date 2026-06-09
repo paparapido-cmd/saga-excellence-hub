@@ -24,6 +24,7 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import ScrollToTop from "./ScrollToTop";
+import CookieBanner from "./components/CookieBanner";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <CookieBanner />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/practice-areas" element={<PracticeAreas />} />
