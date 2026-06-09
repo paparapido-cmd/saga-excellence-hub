@@ -34,7 +34,7 @@ export default async function handler(req, res) {
 
       const posts = data.results.map((page) => ({
         id: page.id,
-        slug: page.properties.Slug?.rich_text?.[0]?.plain_text || "",
+        slug: page.properties.Slug?.rich_text?.[0]?.plain_text || page.properties.Slug?.title?.[0]?.plain_text || "",
         title: page.properties.Title?.title?.[0]?.plain_text || "",
         excerpt: page.properties.Excerpt?.rich_text?.[0]?.plain_text || "",
         date: page.properties.Date?.date?.start || "",
@@ -99,7 +99,7 @@ export default async function handler(req, res) {
 
       return res.status(200).json({
         id: page.id,
-        slug: page.properties.Slug?.rich_text?.[0]?.plain_text || "",
+        slug: page.properties.Slug?.rich_text?.[0]?.plain_text || page.properties.Slug?.title?.[0]?.plain_text || "",
         title: page.properties.Title?.title?.[0]?.plain_text || "",
         date: page.properties.Date?.date?.start || "",
         category: page.properties.Category?.select?.name || "",
