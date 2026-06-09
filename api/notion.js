@@ -29,23 +29,20 @@ export default async function handler(req, res) {
       const data = await response.json();
 
       if (!data.results) {
-  return res.status(500).json({ error: "Notion error", details: data });
-}
+        return res.status(500).json({ error: "Notion error", details: data });
+      }
 
-// DEBUG - remove after fix
-if (data.results[0]) {
-  return res.status(200).json({ debug: data.results[0].properties });
-}
-
-const posts = data.results.map((page) => ({
-        id: page.id,
-        slug: page.properties.Slug?.rich_text?.[0]?.plain_text || page.properties.Slug?.title?.[0]?.plain_text || "",
-        title: page.properties.Title?.title?.[0]?.plain_text || "",
-        excerpt: page.properties.Excerpt?.rich_text?.[0]?.plain_text || "",
-        date: page.properties.Date?.date?.start || "",
-        category: page.properties.Category?.select?.name || "",
-        readTime: page.properties["Read Time"]?.rich_text?.[0]?.plain_text || "5 min read",
-      }));
+      const posts = data.results
+        .filter((page) => page.properties["Published "]?.checkbox === true)
+        .map((page) => ({
+          id: page.id,
+          slug: page.properties["Slug "]?.rich_text?.[0]?.plain_text || "",
+          title: page.properties.Title?.title?.[0]?.plain_text || "",
+          excerpt: page.properties.Excerpt?.rich_text?.[0]?.plain_text || "",
+          date: page.properties.Date?.date?.start || "",
+          category: page.properties.Category?.select?.name || "",
+          readTime: page.properties["Read Time "]?.rich_text?.[0]?.plain_text || "5 min read",
+        }));
 
       return res.status(200).json(posts);
     }
@@ -61,16 +58,15 @@ const posts = data.results.map((page) => ({
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            filter: {
-              property: "Slug",
-              rich_text: { equals: slug },
-            },
+            sorts: [{ property: "Date", direction: "descending" }],
           }),
         }
       );
 
       const data = await response.json();
-      const page = data.results?.[0];
+      const page = data.results?.find(
+        (p) => p.properties["Slug "]?.rich_text?.[0]?.plain_text === slug
+      );
 
       if (!page) {
         return res.status(404).json({ error: "Post not found" });
@@ -104,11 +100,11 @@ const posts = data.results.map((page) => ({
 
       return res.status(200).json({
         id: page.id,
-        slug: page.properties.Slug?.rich_text?.[0]?.plain_text || page.properties.Slug?.title?.[0]?.plain_text || "",
+        slug: page.properties["Slug "]?.rich_text?.[0]?.plain_text || "",
         title: page.properties.Title?.title?.[0]?.plain_text || "",
         date: page.properties.Date?.date?.start || "",
         category: page.properties.Category?.select?.name || "",
-        readTime: page.properties["Read Time"]?.rich_text?.[0]?.plain_text || "5 min read",
+        readTime: page.properties["Read Time "]?.rich_text?.[0]?.plain_text || "5 min read",
         content,
       });
     }
