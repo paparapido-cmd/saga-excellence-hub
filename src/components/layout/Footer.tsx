@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 const practiceAreas = [
   { title: "Saga Excellence Academy", href: "/practice-areas/academy" },
@@ -10,7 +10,6 @@ const practiceAreas = [
 const quickLinks = [
   { title: "Home", href: "/" },
   { title: "Meet Us", href: "/meet-us" },
-  { title: "Successful Cases", href: "/successful-cases" },
   { title: "Blog", href: "/blog" },
   { title: "Contact Us", href: "/contact" },
 ];
@@ -81,18 +80,9 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Phone className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                <a
-                  href="tel:+381638026766"
-                  className="text-primary-foreground/80 hover:text-accent transition-colors text-sm"
-                >
-                  +381 63 802 6766
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/80 text-sm">
-                  Prague, Czech Republic
+                  Europe
                 </span>
               </li>
             </ul>
