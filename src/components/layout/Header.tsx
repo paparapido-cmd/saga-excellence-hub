@@ -43,7 +43,6 @@ const practiceAreas = [
 const navLinks = [
   { title: "Home", href: "/" },
   { title: "Meet Us", href: "/meet-us" },
-  { title: "Successful Cases", href: "/successful-cases" },
   { title: "Blog", href: "/blog" },
   { title: "Contact Us", href: "/contact" },
 ];
