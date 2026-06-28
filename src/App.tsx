@@ -17,7 +17,6 @@ import StrategyHub from "./pages/practice-areas/StrategyHub";
 import StrategyDeployment from "./pages/practice-areas/strategy-hub/StrategyDeployment";
 import StrategyExecution from "./pages/practice-areas/strategy-hub/StrategyExecution";
 import MeetUs from "./pages/MeetUs";
-import SuccessfulCases from "./pages/SuccessfulCases";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
@@ -50,7 +49,6 @@ const App = () => (
           <Route path="/practice-areas/strategy-hub/strategy-deployment" element={<StrategyDeployment />} />
           <Route path="/practice-areas/strategy-hub/strategy-execution" element={<StrategyExecution />} />
           <Route path="/meet-us" element={<MeetUs />} />
-          <Route path="/successful-cases" element={<SuccessfulCases />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
