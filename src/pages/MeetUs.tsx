@@ -1,7 +1,6 @@
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PageHero } from "@/components/shared/PageHero";
 import { ContentSection } from "@/components/shared/ContentSection";
-import { Linkedin, Mail } from "lucide-react";
 
 export default function MeetUs() {
   return (
@@ -12,7 +11,7 @@ export default function MeetUs() {
       />
 
       <ContentSection>
-        <div className="max-w-4xl mx-auto mb-20">
+        <div className="max-w-4xl mx-auto">
           <div className="prose-consulting">
             <h2>Our Story</h2>
             <p>
@@ -62,41 +61,6 @@ export default function MeetUs() {
               <strong>Impact:</strong> We focus on results that matter. Every engagement
               is designed to deliver measurable value that advances your strategic objectives.
             </p>
-          </div>
-        </div>
-
-        {/* Leadership */}
-        <div>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
-            Leadership
-          </h2>
-          <div className="flex justify-center">
-            <div className="bg-card rounded-lg overflow-hidden shadow-soft hover:shadow-strong transition-all duration-300 max-w-sm w-full">
-              <div className="aspect-square overflow-hidden">
-  <img
-    src="/sladjana.jpg"
-    alt="Sladjana Milosavljevic"
-    className="w-full h-full object-cover"
-  />
-</div>
-              <div className="p-8">
-                <h3 className="font-serif text-2xl font-semibold text-foreground mb-1">
-                  Sladjana Milosavljevic
-                </h3>
-                <p className="text-accent font-medium text-sm mb-4">
-                  Founder &amp; Managing Partner
-                </p>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                  25+ years of experience leading transformation initiatives across Fortune 500 companies.
-                  Former VP of Operations at a global manufacturing leader. Deep expertise in Lean
-                  methodology, operational excellence, and organizational transformation.
-                </p>
-                <div className="flex gap-4">
-                  <a href="https://www.linkedin.com/in/sla%C4%91ana-milosavljevi%C4%87-68434a1a5/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors" aria-label="Sladjana LinkedIn"><Linkedin className="h-5 w-5" /></a>
-                  <a href="mailto:office@sagaexcellence.com" className="text-muted-foreground hover:text-accent transition-colors" aria-label="Email Sladjana"><Mail className="h-5 w-5" /></a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </ContentSection>
