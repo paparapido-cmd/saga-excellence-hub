@@ -55,13 +55,13 @@ export function Header() {
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container-wide">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-[76px] items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <span className="font-serif text-2xl font-bold text-primary">
-              Saga <span className="text-accent">Excellence</span>
+              Saga <span className="text-accent italic">Excellence</span>
             </span>
           </Link>
 
