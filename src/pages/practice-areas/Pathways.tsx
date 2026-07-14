@@ -66,10 +66,10 @@ export default function Pathways() {
             <Link
               key={pathway.title}
               to={pathway.href}
-              className="group block bg-card rounded-lg border border-border p-8 shadow-soft hover:shadow-strong transition-all duration-300 hover:-translate-y-1"
+              className="area-card group block bg-card rounded-sm border border-border p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-md"
             >
-              <pathway.icon className="h-12 w-12 text-accent mb-6" />
-              <h3 className="font-serif text-2xl font-semibold text-foreground mb-4 group-hover:text-accent transition-colors">
+              <pathway.icon className="h-9 w-9 text-accent mb-6" strokeWidth={1.25} />
+              <h3 className="font-serif text-2xl font-semibold text-primary mb-4 group-hover:text-accent transition-colors">
                 {pathway.title}
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
