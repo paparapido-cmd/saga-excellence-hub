@@ -23,6 +23,7 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import ScrollToTop from "./ScrollToTop";
+import SeoManager from "./components/SeoManager";
 import CookieBanner from "./components/CookieBanner";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <SeoManager />
         <CookieBanner />
         <Routes>
           <Route path="/" element={<Index />} />
