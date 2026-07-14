@@ -11,13 +11,16 @@ export function ContentSection({ children, className, variant = "default" }: Con
   return (
     <section
       className={cn(
-        "section-padding",
-        variant === "gray" && "bg-secondary",
-        variant === "primary" && "bg-primary text-primary-foreground",
+        "section-padding relative",
+        variant === "gray" && "bg-secondary border-y border-border",
+        variant === "primary" && "bg-navy text-primary-foreground overflow-hidden",
         className
       )}
     >
-      <div className="container-wide">{children}</div>
+      {variant === "primary" && (
+        <div className="absolute inset-0 grid-texture-dark pointer-events-none" aria-hidden="true" />
+      )}
+      <div className="container-wide relative">{children}</div>
     </section>
   );
 }
