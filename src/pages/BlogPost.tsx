@@ -35,6 +35,12 @@ export default function BlogPost() {
       });
   }, [slug]);
 
+  useEffect(() => {
+    if (post?.title) {
+      document.title = `${post.title} | Saga Excellence`;
+    }
+  }, [post]);
+
   return (
     <PageLayout>
       <ContentSection>
@@ -61,11 +67,11 @@ export default function BlogPost() {
 
           {!loading && !error && post && (
             <>
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent mb-4">
+              <span className="font-mono-brand inline-block text-[10.5px] uppercase tracking-[0.22em] text-accent mb-4">
                 {post.category}
               </span>
 
-              <h1 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
+              <h1 className="font-serif text-4xl md:text-5xl font-semibold text-primary mb-6">
                 {post.title}
               </h1>
 
@@ -92,8 +98,8 @@ export default function BlogPost() {
           )}
 
           <div className="mt-16 pt-8 border-t border-border">
-            <div className="bg-secondary rounded-lg p-8 text-center">
-              <h3 className="font-serif text-2xl font-semibold text-foreground mb-4">
+            <div className="bg-secondary border border-border rounded-sm p-8 md:p-10 text-center">
+              <h3 className="font-serif text-2xl font-semibold text-primary mb-4">
                 Ready to Start Your Excellence Journey?
               </h3>
               <p className="text-muted-foreground mb-6">

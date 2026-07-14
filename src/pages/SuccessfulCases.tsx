@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PageHero } from "@/components/shared/PageHero";
 import { ContentSection } from "@/components/shared/ContentSection";
-import { ArrowRight, Building2, TrendingUp, Clock } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const caseStudies = [
   {
@@ -77,52 +77,35 @@ export default function SuccessfulCases() {
           {caseStudies.map((study) => (
             <div
               key={study.id}
-              className="bg-card rounded-lg border border-border overflow-hidden shadow-soft hover:shadow-strong transition-all duration-300"
+              className="area-card group flex flex-col bg-card rounded-sm border border-border p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-md"
             >
-              <div className="bg-primary p-4">
-                <div className="flex items-center gap-2 text-primary-foreground">
-                  <Building2 className="h-5 w-5 text-accent" />
-                  <span className="text-sm font-medium">{study.industry}</span>
-                </div>
-                <h3 className="font-serif text-xl font-semibold text-primary-foreground mt-2">
-                  {study.client}
-                </h3>
+              <span className="font-mono-brand text-[10.5px] uppercase tracking-[0.22em] text-accent mb-3">
+                {study.industry}
+              </span>
+              <h3 className="font-serif text-xl font-semibold text-primary mb-5">
+                {study.client}
+              </h3>
+              <div className="mb-4">
+                <span className="font-mono-brand text-[10px] uppercase tracking-[0.18em] text-muted-foreground block mb-1.5">
+                  Challenge
+                </span>
+                <p className="text-sm text-muted-foreground">{study.challenge}</p>
               </div>
-              <div className="p-6">
-                <div className="mb-4">
-                  <div className="flex items-start gap-2 mb-2">
-                    <Clock className="h-4 w-4 text-muted-foreground shrink-0 mt-1" />
-                    <div>
-                      <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                        Challenge
-                      </span>
-                      <p className="text-sm text-foreground mt-1">{study.challenge}</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="mb-4">
-                  <div className="flex items-start gap-2">
-                    <TrendingUp className="h-4 w-4 text-accent shrink-0 mt-1" />
-                    <div>
-                      <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                        Result
-                      </span>
-                      <p className="text-sm text-foreground font-medium mt-1">
-                        {study.result}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-border">
-                  {study.services.map((service) => (
-                    <span
-                      key={service}
-                      className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary text-secondary-foreground"
-                    >
-                      {service}
-                    </span>
-                  ))}
-                </div>
+              <div className="mb-6">
+                <span className="font-mono-brand text-[10px] uppercase tracking-[0.18em] text-accent block mb-1.5">
+                  Result
+                </span>
+                <p className="text-sm text-foreground font-medium">{study.result}</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-4 mt-auto border-t border-border">
+                {study.services.map((service) => (
+                  <span
+                    key={service}
+                    className="inline-flex items-center px-2.5 py-1 rounded-sm border border-border text-xs text-muted-foreground"
+                  >
+                    {service}
+                  </span>
+                ))}
               </div>
             </div>
           ))}

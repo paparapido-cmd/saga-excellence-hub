@@ -65,13 +65,13 @@ export default function Blog() {
               <Link
                 key={post.id}
                 to={`/blog/${post.slug}`}
-                className="group bg-card rounded-lg border border-border overflow-hidden shadow-soft hover:shadow-strong transition-all duration-300 hover:-translate-y-1"
+                className="area-card group bg-card rounded-sm border border-border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-md"
               >
                 <div className="p-6">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent mb-4">
+                  <span className="font-mono-brand inline-block text-[10.5px] uppercase tracking-[0.22em] text-accent mb-4">
                     {post.category}
                   </span>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-3 group-hover:text-accent transition-colors line-clamp-2">
+                  <h3 className="font-serif text-xl font-semibold text-primary mb-3 group-hover:text-accent transition-colors line-clamp-2">
                     {post.title}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
