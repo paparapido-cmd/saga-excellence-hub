@@ -20,6 +20,7 @@ import MeetUs from "./pages/MeetUs";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
+import LeanFoundation from "./pages/LeanFoundation";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import ScrollToTop from "./ScrollToTop";
@@ -53,6 +54,7 @@ const App = () => (
           <Route path="/meet-us" element={<MeetUs />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/trainings/lean-foundation" element={<LeanFoundation />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
