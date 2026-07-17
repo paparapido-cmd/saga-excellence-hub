@@ -76,6 +76,11 @@ const routeMeta: Record<string, { title: string; description: string }> = {
     description:
       "Insights, perspectives, and practical guidance on organizational excellence from our consulting team.",
   },
+  "/trainings/lean-foundation": {
+    title: "Lean Foundation Workshop | Saga Excellence",
+    description:
+      "A one-day, hands-on Lean simulation for teams of 8 or 13. Experience how standardization, visual management and Lean layout move real results — without financial investment. Open dates and in-house delivery.",
+  },
   "/contact": {
     title: "Contact Us | Saga Excellence",
     description:
